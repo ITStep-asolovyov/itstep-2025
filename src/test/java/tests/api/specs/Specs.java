@@ -11,7 +11,7 @@ import static io.restassured.RestAssured.with;
 import static io.restassured.http.ContentType.JSON;
 
 public class Specs {
-
+     static String token = System.getProperty("token","e71377a915cc9a91dd913850b09cbbd411d276b9f131cda9afcf2f6d62817396");
 
     public static final RequestSpecification REQ_SPEC = with()
 
@@ -19,7 +19,7 @@ public class Specs {
             .filter(CustomAllureListener.withCustomTemplates())
             .log().uri()
             .contentType(JSON)
-            .header("Token", System.setProperty("token","e71377a915cc9a91dd913850b09cbbd411d276b9f131cda9afcf2f6d62817396"));
+            .header("Token", token);
 
     public static final ResponseSpecification RES_SPEC = new ResponseSpecBuilder()
             .log(LogDetail.ALL)
