@@ -17,7 +17,7 @@ public class Specs {
 
             .baseUri("https://api.qase.io/v1")
             .filter(CustomAllureListener.withCustomTemplates())
-            .log().uri()
+            .log().all()
             .contentType(JSON)
             .header("Token", token);
 
