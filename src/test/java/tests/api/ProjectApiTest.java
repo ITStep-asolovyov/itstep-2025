@@ -17,7 +17,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Tag("API")
+
 @Epic("API")
 @Feature("PROJECT")
 @Owner("alexandrsoloviev")
@@ -25,6 +25,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ProjectApiTest {
 
     @Test
+    @Tag("UI")
     @DisplayName("Create project")
     public void projectShouldBeCreated() {
         CreateProjectRequest creteProjectRq = ProjectGenerator.createProjectApi();
@@ -36,7 +37,6 @@ public class ProjectApiTest {
                 .extracting(Result::getCode)
                 .isEqualTo(creteProjectRq.getCode());
 
-        ProjectSteps.deleteProject(creteProjectRq.getCode());
     }
 
     @Test
